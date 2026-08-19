@@ -1,7 +1,7 @@
 import Foundation
 import os
 
-private let pairingLog = Logger(subsystem: "org.aethyrion.talaria", category: "PairingStore")
+private let pairingLog = Logger(subsystem: "io.github.eulric90.talaria", category: "PairingStore")
 
 @MainActor
 @Observable

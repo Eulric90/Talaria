@@ -1,7 +1,7 @@
 import Foundation
 import os
 
-private let containerLog = Logger(subsystem: "org.aethyrion.talaria", category: "AppContainer")
+private let containerLog = Logger(subsystem: "io.github.eulric90.talaria", category: "AppContainer")
 
 @MainActor
 @Observable
@@ -88,7 +88,7 @@ final class AppContainer {
 
         let buildConfiguration = AppBuildConfiguration.current()
         let secureStore = KeychainSecureStore(
-            serviceName: processEnvironment["UITEST_KEYCHAIN_SERVICE"] ?? "org.aethyrion.talaria.session"
+            serviceName: processEnvironment["UITEST_KEYCHAIN_SERVICE"] ?? "io.github.eulric90.talaria.session"
         )
         // Keychain-mirrored so the pairing config survives clean reinstalls,
         // like the session tokens already do (#41).
@@ -609,7 +609,7 @@ final class AppContainer {
             deviceId: deviceID.uuidString.lowercased(),
             apnsToken: normalizedToken,
             pushEnvironment: pushEnvironment,
-            bundleId: Bundle.main.bundleIdentifier ?? "org.aethyrion.talaria"
+            bundleId: Bundle.main.bundleIdentifier ?? "io.github.eulric90.talaria"
         )
 
         struct PushRegisterResponse: Decodable {

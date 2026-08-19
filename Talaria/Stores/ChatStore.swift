@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 import os
 
-private let chatLog = Logger(subsystem: "org.aethyrion.talaria", category: "ChatStore")
+private let chatLog = Logger(subsystem: "io.github.eulric90.talaria", category: "ChatStore")
 
 @MainActor
 @Observable

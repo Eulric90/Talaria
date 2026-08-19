@@ -5,7 +5,7 @@ import os
 //
 // Lightweight os.Logger facade for Talaria, fronting the Developer screen's
 // "Verbose Logging" flag (T3). Subsystem is the app bundle id so captures filter
-// cleanly in Console.app (filter: org.aethyrion.talaria).
+// cleanly in Console.app (filter: io.github.eulric90.talaria).
 //
 // Truthfulness note: flipping Verbose Logging is wired to REAL os_log here —
 // `setVerbose(_:)` persists the flag and emits an observable `.notice` line every
@@ -15,7 +15,7 @@ import os
 // tracked in OPEN_ITEMS (#dev-verbose-adoption).
 enum TalariaLog {
     /// App bundle identifier — the Console.app subsystem filter.
-    static let subsystem = Bundle.main.bundleIdentifier ?? "org.aethyrion.talaria"
+    static let subsystem = Bundle.main.bundleIdentifier ?? "io.github.eulric90.talaria"
 
     private static let defaultsKey = "talaria.verboseLogging"
 

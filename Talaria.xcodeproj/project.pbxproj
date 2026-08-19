@@ -1043,11 +1043,11 @@
 				LastUpgradeCheck = 2630;
 				TargetAttributes = {
 					1B5CF70C2165B59E27FDF0BA = {
-						DevelopmentTeam = DNL25ZFSD2;
+						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
 					1E8262A30297B30A6BC1DDAA = {
-						DevelopmentTeam = DNL25ZFSD2;
+						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
 					23F486750C75CAACFBF51049 = {
@@ -1354,7 +1354,7 @@
 				CODE_SIGN_ENTITLEMENTS = TalariaWidgets/TalariaWidgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DNL25ZFSD2;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TalariaWidgets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1362,7 +1362,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = org.aethyrion.talaria.Widgets;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.eulric90.talaria.Widgets;
 				PRODUCT_NAME = TalariaWidgets;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 6.2;
@@ -1380,7 +1380,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.aethyrion.talaria.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.eulric90.talaria.tests;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Talaria for Hermes Desktop.app/Talaria for Hermes Desktop";
@@ -1458,7 +1458,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DNL25ZFSD2;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Talaria/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Talaria;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1466,7 +1466,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = org.aethyrion.talaria;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.eulric90.talaria;
 				PRODUCT_MODULE_NAME = Talaria;
 				PRODUCT_NAME = "Talaria for Hermes Desktop";
 				SDKROOT = iphoneos;
@@ -1484,7 +1484,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.aethyrion.talaria.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.eulric90.talaria.tests;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Talaria for Hermes Desktop.app/Talaria for Hermes Desktop";
@@ -1498,7 +1498,7 @@
 				CODE_SIGN_ENTITLEMENTS = TalariaWidgets/TalariaWidgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DNL25ZFSD2;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TalariaWidgets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1506,7 +1506,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = org.aethyrion.talaria.Widgets;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.eulric90.talaria.Widgets;
 				PRODUCT_NAME = TalariaWidgets;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 6.2;
@@ -1524,7 +1524,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.aethyrion.talaria.uitests;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.eulric90.talaria.uitests;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Talaria;
@@ -1541,7 +1541,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.aethyrion.talaria.uitests;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.eulric90.talaria.uitests;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Talaria;
@@ -1625,7 +1625,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DNL25ZFSD2;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Talaria/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Talaria;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1633,7 +1633,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = org.aethyrion.talaria;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.eulric90.talaria;
 				PRODUCT_MODULE_NAME = Talaria;
 				PRODUCT_NAME = "Talaria for Hermes Desktop";
 				SDKROOT = iphoneos;

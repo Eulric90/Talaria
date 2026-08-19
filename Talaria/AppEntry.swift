@@ -3,7 +3,7 @@ import UIKit
 import UserNotifications
 import os
 
-private let appDelegateLog = Logger(subsystem: "org.aethyrion.talaria", category: "AppDelegate")
+private let appDelegateLog = Logger(subsystem: "io.github.eulric90.talaria", category: "AppDelegate")
 
 final class HermesAppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     func application(

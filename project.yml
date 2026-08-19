@@ -2,7 +2,7 @@ name: Talaria
 options:
   # Public-safe defaults. Replace locally if you regenerate the project
   # for a private deployment with your own signing/bundle identifiers.
-  bundleIdPrefix: org.aethyrion
+  bundleIdPrefix: io.github.eulric90
   deploymentTarget:
     iOS: "26.0"
   xcodeVersion: "26.3"
@@ -39,15 +39,15 @@ targets:
     entitlements:
       path: Talaria/Talaria.entitlements
       properties:
-        # Declared here so `xcodegen generate` stops stripping it from the
-        # entitlements file (OPEN_ITEMS #44/#48 trap). Dev/sandbox value —
-        # switch to production for TestFlight/Release (#8).
-        aps-environment: development
+        # No aps-environment: Push Notifications requires a paid Apple
+        # Developer Program membership and isn't available to a free
+        # personal-team signing identity (sideload builds). Notifications
+        # already don't work per the README, so nothing lost here.
         com.apple.developer.healthkit: true
         com.apple.developer.healthkit.access: []
         com.apple.developer.healthkit.background-delivery: true
         com.apple.security.application-groups:
-          - group.org.aethyrion.talaria
+          - group.io.github.eulric90.talaria
     sources:
       - path: Talaria
         excludes:
@@ -63,7 +63,7 @@ targets:
       - target: TalariaWidgets
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: org.aethyrion.talaria
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.eulric90.talaria
         PRODUCT_NAME: "Talaria for Hermes Desktop"
         # Keep the Swift module importable as `Talaria` (tests use
         # `@testable import Talaria`); PRODUCT_NAME alone would rename the
@@ -71,7 +71,7 @@ targets:
         PRODUCT_MODULE_NAME: Talaria
         MARKETING_VERSION: "1.0.0"
         CURRENT_PROJECT_VERSION: "1"
-        DEVELOPMENT_TEAM: "DNL25ZFSD2"
+        DEVELOPMENT_TEAM: ""  # set to your own free Apple ID personal-team ID if building signed locally in Xcode
         CODE_SIGN_STYLE: Automatic
         INFOPLIST_KEY_CFBundleDisplayName: Talaria
     scheme:
@@ -146,7 +146,6 @@ targets:
         UIBackgroundModes:
           - processing
           - location
-          - remote-notification
           - audio
         UIApplicationSceneManifest:
           UIApplicationSupportsMultipleScenes: true
@@ -167,7 +166,7 @@ targets:
       path: TalariaWidgets/TalariaWidgets.entitlements
       properties:
         com.apple.security.application-groups:
-          - group.org.aethyrion.talaria
+          - group.io.github.eulric90.talaria
     info:
       path: TalariaWidgets/Info.plist
       properties:
@@ -176,13 +175,13 @@ targets:
           NSExtensionPointIdentifier: com.apple.widgetkit-extension
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: org.aethyrion.talaria.Widgets
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.eulric90.talaria.Widgets
         PRODUCT_NAME: TalariaWidgets
         MARKETING_VERSION: "1.0.0"
         CURRENT_PROJECT_VERSION: "1"
         SWIFT_VERSION: "6.2"
         CODE_SIGN_STYLE: Automatic
-        DEVELOPMENT_TEAM: "DNL25ZFSD2"
+        DEVELOPMENT_TEAM: ""  # set to your own free Apple ID personal-team ID if building signed locally in Xcode
         TARGETED_DEVICE_FAMILY: "1,2"
     scheme: {}
 
@@ -195,7 +194,7 @@ targets:
       - target: Talaria
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: org.aethyrion.talaria.tests
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.eulric90.talaria.tests
         TEST_TARGET_NAME: Talaria
         # PRODUCT_NAME on the app target is "Talaria for Hermes Desktop", so
         # XcodeGen's auto-derived TEST_HOST (Talaria.app/Talaria) is wrong.
@@ -212,6 +211,6 @@ targets:
       - target: Talaria
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: org.aethyrion.talaria.uitests
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.eulric90.talaria.uitests
         TEST_TARGET_NAME: Talaria
         GENERATE_INFOPLIST_FILE: true

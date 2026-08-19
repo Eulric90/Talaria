@@ -8,7 +8,7 @@ import os
 
 @MainActor
 final class LiveVoiceSessionService: NSObject, VoiceSessionServiceProtocol {
-    private static let logger = Logger(subsystem: "org.aethyrion.talaria", category: "LiveVoiceSessionService")
+    private static let logger = Logger(subsystem: "io.github.eulric90.talaria", category: "LiveVoiceSessionService")
     private struct EmptyBody: Encodable {}
 
     private struct EmptyRelayResponse: Decodable {}

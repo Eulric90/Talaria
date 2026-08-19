@@ -360,7 +360,7 @@ struct DiagnosticsSettingsScreen: View {
             VStack(alignment: .leading, spacing: Design.Spacing.xs) {
                 MonoLabel("In-app log buffer not yet captured.", size: 10,
                           tracking: Design.Tracking.mono, color: Design.Colors.secondaryForeground)
-                MonoLabel("Capture via Console.app · filter org.aethyrion.talaria", size: 9,
+                MonoLabel("Capture via Console.app · filter io.github.eulric90.talaria", size: 9,
                           tracking: Design.Tracking.mono, color: Design.Colors.mutedForeground)
             }
             .frame(maxWidth: .infinity, alignment: .leading)

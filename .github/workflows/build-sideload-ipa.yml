@@ -1,0 +1,97 @@
+name: Build sideload IPA
+
+# Produces an unsigned .ipa on a GitHub-hosted macOS runner (no local Mac
+# needed). Install/sign it with AltStore, SideStore, or Feather using your
+# own free Apple ID — capabilities used by the app (HealthKit, App Groups)
+# are baked into the binary's entitlements via ldid so the signer knows to
+# request them. Push Notifications is intentionally not requested: it
+# requires a paid Apple Developer Program membership.
+#
+# Every run also republishes the "sideload-latest" release so you have one
+# stable download link on your phone for the weekly re-sign/re-install.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: macos-15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select latest available Xcode
+        run: |
+          LATEST=$(ls -d /Applications/Xcode_*.app 2>/dev/null | sort -V | tail -n1)
+          echo "Using $LATEST"
+          sudo xcode-select -s "$LATEST"
+          xcodebuild -version
+
+      - name: Install XcodeGen and ldid
+        run: brew install xcodegen ldid
+
+      - name: Generate Xcode project
+        run: xcodegen generate
+
+      - name: Resolve Swift packages
+        run: xcodebuild -resolvePackageDependencies -project Talaria.xcodeproj -scheme Talaria
+
+      - name: Archive (unsigned)
+        run: |
+          xcodebuild archive \
+            -project Talaria.xcodeproj \
+            -scheme Talaria \
+            -configuration Release \
+            -archivePath "$PWD/build/Talaria.xcarchive" \
+            -destination "generic/platform=iOS" \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGN_ENTITLEMENTS="" \
+            DEVELOPMENT_TEAM="" \
+            AD_HOC_CODE_SIGNING_ALLOWED=YES
+
+      - name: Fakesign app + widget extension with real entitlements
+        run: |
+          APP_PATH=$(find "build/Talaria.xcarchive/Products/Applications" -maxdepth 1 -name "*.app" | head -n1)
+          APP_NAME=$(basename "$APP_PATH" .app)
+          echo "App: $APP_PATH"
+          ldid -S"Talaria/Talaria.entitlements" "$APP_PATH/$APP_NAME"
+
+          EXT_PATH=$(find "$APP_PATH/PlugIns" -maxdepth 1 -name "*.appex" 2>/dev/null | head -n1)
+          if [ -n "$EXT_PATH" ]; then
+            EXT_NAME=$(basename "$EXT_PATH" .appex)
+            echo "Extension: $EXT_PATH"
+            ldid -S"TalariaWidgets/TalariaWidgets.entitlements" "$EXT_PATH/$EXT_NAME"
+          fi
+
+          echo "APP_PATH=$APP_PATH" >> "$GITHUB_ENV"
+
+      - name: Package IPA
+        run: |
+          mkdir -p build/Payload
+          cp -r "$APP_PATH" build/Payload/
+          cd build && zip -qr Talaria-sideload.ipa Payload
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Talaria-sideload-ipa
+          path: build/Talaria-sideload.ipa
+
+      - name: Publish rolling "sideload-latest" release
+        if: github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git tag -f sideload-latest
+          git push -f origin sideload-latest
+          gh release delete sideload-latest --yes --cleanup-tag=false || true
+          gh release create sideload-latest build/Talaria-sideload.ipa \
+            --title "Talaria (unsigned sideload build)" \
+            --notes "Unsigned IPA, auto-built from $GITHUB_SHA. Install with AltStore, SideStore, or Feather using your own Apple ID. Free accounts must re-sign every 7 days." \
+            --prerelease

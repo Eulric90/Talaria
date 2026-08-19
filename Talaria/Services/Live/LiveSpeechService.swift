@@ -13,7 +13,7 @@ import OSLog
 @Observable
 final class LiveSpeechService {
     private static let logger = Logger(
-        subsystem: Bundle.main.bundleIdentifier ?? "org.aethyrion.talaria",
+        subsystem: Bundle.main.bundleIdentifier ?? "io.github.eulric90.talaria",
         category: "Dictation"
     )
     private static let startupTimeout: Duration = .seconds(4)
@@ -180,7 +180,7 @@ final class LiveSpeechService {
 
 private actor DictationController {
     private static let logger = Logger(
-        subsystem: Bundle.main.bundleIdentifier ?? "org.aethyrion.talaria",
+        subsystem: Bundle.main.bundleIdentifier ?? "io.github.eulric90.talaria",
         category: "DictationController"
     )
 

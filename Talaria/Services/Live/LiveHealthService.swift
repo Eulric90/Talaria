@@ -2,7 +2,7 @@ import Foundation
 import HealthKit
 import os
 
-private let healthLog = Logger(subsystem: "org.aethyrion.talaria", category: "LiveHealth")
+private let healthLog = Logger(subsystem: "io.github.eulric90.talaria", category: "LiveHealth")
 
 struct HealthSnapshot: Sendable {
     struct Sample: Sendable {

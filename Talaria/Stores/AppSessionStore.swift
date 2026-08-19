@@ -1,7 +1,7 @@
 import Foundation
 import os
 
-private let sessionLog = Logger(subsystem: "org.aethyrion.talaria", category: "AppSessionStore")
+private let sessionLog = Logger(subsystem: "io.github.eulric90.talaria", category: "AppSessionStore")
 
 @MainActor
 @Observable

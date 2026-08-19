@@ -8,7 +8,7 @@ import os
 /// separate channel. Relay/connector are still used for sensors and pairing.
 @MainActor
 final class SessionsHermesClient: HermesClientProtocol {
-    private static let logger = Logger(subsystem: "org.aethyrion.talaria", category: "SessionsHermesClient")
+    private static let logger = Logger(subsystem: "io.github.eulric90.talaria", category: "SessionsHermesClient")
     private static let modelsPath = "/v1/models"
     private static let modelOptionsPath = "/api/model/options"
     private static let sessionsPath = "/api/sessions"
@@ -684,7 +684,7 @@ final class SessionsHermesClient: HermesClientProtocol {
 
         // Nonisolated logger — the enclosing client is @MainActor, but this
         // nested value type isn't, so it can't reach the class's isolated one.
-        private static let logger = Logger(subsystem: "org.aethyrion.talaria", category: "SessionsHermesClient")
+        private static let logger = Logger(subsystem: "io.github.eulric90.talaria", category: "SessionsHermesClient")
 
         /// Build a turn body from the composer's message + staged attachments.
         /// Images become `image_url` data-URL parts; a non-empty message becomes

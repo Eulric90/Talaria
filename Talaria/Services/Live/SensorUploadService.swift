@@ -3,7 +3,7 @@ import Foundation
 @preconcurrency import MapKit
 import os
 
-private let sensorLog = Logger(subsystem: "org.aethyrion.talaria", category: "SensorUpload")
+private let sensorLog = Logger(subsystem: "io.github.eulric90.talaria", category: "SensorUpload")
 
 struct SensorOutboxState: Codable, Hashable, Sendable {
     struct PendingLocation: Codable, Hashable, Sendable {

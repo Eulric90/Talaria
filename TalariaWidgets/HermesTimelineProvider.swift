@@ -37,7 +37,7 @@ struct HermesTimelineProvider: AppIntentTimelineProvider {
         if let custom = Bundle.main.object(forInfoDictionaryKey: "APP_GROUP_ID") as? String, !custom.isEmpty {
             return custom
         }
-        return "group.org.aethyrion.talaria"
+        return "group.io.github.eulric90.talaria"
     }()
     private static let dataKey = "hermes.widget.data"
 
